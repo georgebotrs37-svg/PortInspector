@@ -20,8 +20,8 @@ type PortResult struct {
 }
 
 func scanPort(ctx context.Context, results chan<- PortResult, ip string, port int, timeout time.Duration) {
-	defer close(results) // لكن هذا لكل port، نحتاج channel مختلف
-
+	defer close(results) 
+	
 	select {
 	case <-ctx.Done():
 		return
@@ -126,11 +126,11 @@ func scanPorts(ip string, portList []int, timeout time.Duration, maxWorkers int)
 
 	for _, port := range portList {
 		wg.Add(1)
-		sem <- struct{}{} // Acquire semaphore
+		sem <- struct{}{} 
 		
 		go func(p int) {
 			defer wg.Done()
-			defer func() { <-sem }() // Release semaphore
+			defer func() { <-sem }() 
 			
 			select {
 			case <-ctx.Done():
