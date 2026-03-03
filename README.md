@@ -19,7 +19,7 @@ A high-performance, feature-rich network port scanner built with **Go**.
 Ensure you have [Go](https://go.dev/dl/) installed:
 
 ```bash
-git clone https://github.com/georgebotrs37/PortInspector.git
+git clone https://github.com/georgebotrs37-svg/PortInspector.git
 cd PortInspector
 go build -o scanner.exe main.go
 💻 Usage
